@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -Eeuo pipefail
+
 HISTCONTROL=ignoreboth
 
  if [[ $(cat /etc/hosts | grep $(hostname) | grep 127.0.1.1) == "" ]]; then
@@ -80,7 +82,7 @@ sudo ufw enable
         qrencode \
         nftables \
         curl \
-	torsocks \
+		torsocks \
         jq \
         dnsutils \
         grep \
@@ -95,13 +97,13 @@ sudo ufw enable
         clamav \
         clamav-daemon \
         clamav-freshclam \
-	tar \
-	golang-go \
-	git
+    	tar \
+    	golang-go \
+    	git \
+		ca-certificates \
+		gzip
 apt autoremove -y
 
-#!/usr/bin/env bash
-set -Eeuo pipefail
 umask 077
 
 # One-block Debian 13 (trixie) VPS setup:
@@ -223,13 +225,6 @@ Unattended-Upgrade::Package-Blacklist {
 Unattended-Upgrade::Automatic-Reboot "true";
 EOF
 
-apt-get update
-apt-get upgrade -y
-apt-get install -y --no-install-recommends \
-  openssh-server sudo ufw wireguard wireguard-tools qrencode nftables \
-  curl torsocks jq dnsutils grep sed coreutils findutils procps gawk \
-  util-linux gnupg openssl clamav clamav-daemon clamav-freshclam \
-  tar golang-go git ca-certificates gzip
 
 # Permit SSH before enabling UFW.
 ufw allow "${SSH_PORT}/tcp" comment "SSH administration"
