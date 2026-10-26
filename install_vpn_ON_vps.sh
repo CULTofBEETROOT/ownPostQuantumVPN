@@ -271,7 +271,10 @@ unset AGE_RECIPIENT
 rm -rf -- "$WORK"
 WORK=""
 
-# AmneziaWG installer and client provisioner.
+
+
+
+# AmenstiaWG INSTALLER and CLIENT PROVISIONER.
 INSTALLER_URL="https://github.com/bivlked/amneziawg-installer/releases/latest/download/install_amneziawg_en.sh"
 INSTALLER=/root/install_amneziawg_en.sh
 MANAGER=/root/awg/manage_amneziawg.sh
