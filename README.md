@@ -1,1 +1,1 @@
-# ownVPN
+# ownPostQuantumVPN
